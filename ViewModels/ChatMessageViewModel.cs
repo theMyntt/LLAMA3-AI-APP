@@ -14,6 +14,8 @@ public partial class ChatMessageViewModel : ObservableObject
     [ObservableProperty] 
     private string prompt;
 
+    private ChatService service = new();
+    
     public ICommand GetMessages { get; set; }
 
     public ChatMessageViewModel()
@@ -23,7 +25,6 @@ public partial class ChatMessageViewModel : ObservableObject
 
     public async Task GetMessageAsync()
     {
-        var service = new ChatService();
         Messages = await service.PromptAsync(Prompt);
     }
 }
