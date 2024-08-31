@@ -51,6 +51,6 @@ public class ChatService
             
         messages.Add(response);
 
-        return messages;
+        return new ObservableCollection<MessageModel>(messages.Reverse());
     }
 }
