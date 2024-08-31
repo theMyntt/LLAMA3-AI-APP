@@ -18,7 +18,7 @@
                 <CollectionView ItemsSource="{Binding Messages}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <VerticalStackLayout Margin="0,20,0,20">
+                            <VerticalStackLayout Margin="0,20,0,0">
                                 <Label Text="LLAMA3: " FontAttributes="Bold" FontSize="20" />
                                 <Label Text="{Binding Message}" />
                             </VerticalStackLayout>
