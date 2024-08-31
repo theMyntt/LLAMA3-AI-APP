@@ -26,7 +26,7 @@ public class ChatService
 
     private async Task<MessageModel?> _sendMessageAsync(JsonObject request)
     {
-        Uri uri = new("http://localhost:5000/api/prompt");
+        Uri uri = new("http://192.168.0.8:5000/api/prompt");
 
         var response = await _http.PostAsJsonAsync(uri, request);
         var body = await response.Content.ReadAsStringAsync();
