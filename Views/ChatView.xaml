@@ -5,7 +5,7 @@
              x:Class="Llama_APP.Views.ChatView">
     <ContentPage.Content>
         <AbsoluteLayout>
-            
+
             <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 0.9"
                         AbsoluteLayout.LayoutFlags="All"
                         VerticalOptions="FillAndExpand">
@@ -22,17 +22,17 @@
                     </CollectionView>
                 </VerticalStackLayout>
             </ScrollView>
-            
+
             <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
                          AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
                 <Grid ColumnDefinitions="*,Auto" Padding="10">
-                    <Entry Text="{Binding Prompt}" 
-                           Placeholder="Digite sua mensagem" 
-                           HorizontalOptions="FillAndExpand" 
-                           Grid.Column="0"/>
-                    <Button Command="{Binding GetMessages}" 
-                            Text="Enviar" 
-                            Grid.Column="1"/>
+                    <Entry Text="{Binding Prompt}"
+                           Placeholder="Digite sua mensagem"
+                           HorizontalOptions="FillAndExpand"
+                           Grid.Column="0" />
+                    <Button Command="{Binding GetMessages}"
+                            Text="Enviar"
+                            Grid.Column="1" />
                 </Grid>
             </StackLayout>
 
