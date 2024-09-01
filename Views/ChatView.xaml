@@ -4,28 +4,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Llama_APP.Views.ChatView">
     <ContentPage.Content>
-        <ScrollView VerticalOptions="FillAndExpand">
-            <VerticalStackLayout>
-                <Grid ColumnDefinitions="*,Auto">
-                    <Entry Text="{Binding Prompt}" HorizontalOptions="FillAndExpand" Grid.Column="0">
-                        <Entry.Placeholder>Digite sua mensagem</Entry.Placeholder>
-                    </Entry>
-                    <Button Command="{Binding GetMessages}" Grid.Column="1">
-                        <Button.Text>Enviar</Button.Text>
-                    </Button>
+        <AbsoluteLayout>
+            
+            <ScrollView AbsoluteLayout.LayoutBounds="0, 0, 1, 0.9"
+                        AbsoluteLayout.LayoutFlags="All"
+                        VerticalOptions="FillAndExpand">
+                <VerticalStackLayout>
+                    <CollectionView ItemsSource="{Binding Messages}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout Margin="0,20,0,0">
+                                    <Label Text="LLAMA3: " FontAttributes="Bold" FontSize="20" />
+                                    <Label Text="{Binding Message}" />
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </ScrollView>
+            
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 1, 1, AutoSize"
+                         AbsoluteLayout.LayoutFlags="PositionProportional, WidthProportional">
+                <Grid ColumnDefinitions="*,Auto" Padding="10">
+                    <Entry Text="{Binding Prompt}" 
+                           Placeholder="Digite sua mensagem" 
+                           HorizontalOptions="FillAndExpand" 
+                           Grid.Column="0"/>
+                    <Button Command="{Binding GetMessages}" 
+                            Text="Enviar" 
+                            Grid.Column="1"/>
                 </Grid>
+            </StackLayout>
 
-                <CollectionView ItemsSource="{Binding Messages}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <VerticalStackLayout Margin="0,20,0,0">
-                                <Label Text="LLAMA3: " FontAttributes="Bold" FontSize="20" />
-                                <Label Text="{Binding Message}" />
-                            </VerticalStackLayout>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </VerticalStackLayout>
-        </ScrollView>
+        </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
